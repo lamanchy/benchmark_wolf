@@ -7,6 +7,7 @@ int main(int argc, char *argv[]) {
 
   options opts = options(argc, argv);
   auto name = opts.add<command<string>>("name", "Type your name", "no one");
+  // test
 
   pipeline p(opts);
 
