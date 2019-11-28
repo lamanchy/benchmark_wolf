@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 include(ExternalProject)
 ExternalProject_Add(_wolf
-        GIT_REPOSITORY ssh://git@stash.ysoft.local/mp/wolf.git
+        GIT_REPOSITORY https://github.com/lamanchy/wolf.git
         #        GIT_TAG 2019-03-01
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
