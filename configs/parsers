@@ -1,0 +1,38 @@
+spoolerJobReceiveStart:^Receive job command obtained, jobId=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})],
+spoolerJobDataSaved:^Saving data file to job store finished successfully, jobId=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})]
+spoolerJobProcessStart:^Processing of job \[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})]\.$
+spoolerJobAnalysisEnd:^Job analysis complete, jobId=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})]
+spoolerParserStart:^ParserProcess started with arguments \[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}),
+spoolerParserEnd:^ParserProcess finished with exit code
+spoolerJobTicketSent:^Sending job ticket \[
+spoolerJobTicketAccepted:^Job ticket for job \[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})] has been accepted by controller\.$
+spoolerJobProcessEnd:^Processing of job successfully finished, jobId=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})]
+spoolerPrintRequestReceived:^Print request \[RequestId=\[(?P<requestId>[\x21-\x5a\x5c\x5e-\x7e]+)] PrintJob=\[JobId=\[(?P<JobId>(?:[+-]?(?:[0-9]+)))], JobGuid=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})
+spoolerPrintJob:^Print jobId \[RequestId=\[(?P<requestId>[\x21-\x5a\x5c\x5e-\x7e]+)] PrintJob=\[JobId=\[(?P<JobId>(?:[+-]?(?:[0-9]+)))], JobGuid=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}).*User=\[UserName=\[(?P<UserName>[a-zA-Z0-9._-]+)]
+spoolerJobPrintStart:\APrinting of job started, jobId=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})
+spoolerJobPrintEnd:^Job was printed completely, jobId=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})],
+spoolerCannotConnectPrinter:^Unable to connect to printer
+spoolerJobPrintError:^Sending print status \[JobGuid=\[(?P<JobGuid>[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12})\], ResultCode=\[PrinterNotAvailable\], ResultData=\[Printer was not initiated correctly.
+terminalLoginStart:\[(?P<DeviceIp>[^\]]*)]\[[0-9]+] InitAuthenticationSession called
+terminalLoginEnd:^\[(?P<DeviceIp>[^\]]*)]\[[0-9]+] Authentication or card registration process Finished
+terminalServerUserSessionStart:^\[(?P<DeviceIp>[^\]]*)].*Session \[[0-9]+] started. User: \[(?P<UserName>[a-zA-Z0-9._-]+)]
+printerJobPrinted:^JobHeader \[
+printerJobPrintedNetworkError:^Error reading data from socket, external network failure
+spoolerConnectionLost:^Connection to server at \[[A-Za-z]([A-Za-z0-9+\-.]+)+://(?:[a-zA-Z0-9._-]+(?::[^@]*)?@)?(?:(?:(?:%{IPV6}|%{IPV4})|\b(?:[0-9A-Za-z][0-9A-Za-z-]{0,62})(?:\.(?:[0-9A-Za-z][0-9A-Za-z-]{0,62}))*(\.?|\b))(?::(?P<port>\b(?:[1-9][0-9]*)\b))?)?(?:(?:/[A-Za-z0-9$.+!*'(){},~:;=@#%&_\-]*)+(?:\?[A-Za-z0-9$.+!*'|(){},~@#%&/=:;_?\-\[\]<>]*)?)?] lost\.
+spoolerConnectionRestored:^Connection to server restored at
+spoolerCouldNotExecuteRequest:Could not execute request for
+spoolerDeletingDocument:Deleting document \[[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}\.job]
+spocJobReceived:^Job with jobGuid = '[A-Fa-f0-9]{8}-(?:[A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}' received with result = true and receptionInfoMessage = JOB_RECEPTION_SUCCESSFUL
+spocJobIsPrintingFinished:^jobIsPrinting finished
+spocJobWasPrintedFinished:^jobWasPrinted finished
+spocRequestToPrintJob:^Request to print job
+spocConnectionTimeout:^Connection timeout.
+lprJobSenderStart:^Sending job '
+lprJobSenderEnd:^Job successfully sent
+attemptingToPrint:^Attempting to print jobId=(?P<JobId>(?:[+-]?(?:[0-9]+)))
+terminalServerSending:^Sending: .*PrintService.printAll.*"userName":"(?P<userName>\b\w+\b)".*
+spocLoadingJobTickets:^Loading job tickets for .* (?P<userName>\b\w+\b)
+spocSendingPrintRequest:^Sending print request (?P<requestId>\S+)
+managementGetNewJobsReceived:^Received request message: GetNewJobsByUsersRequestMessage\[senderServerGuid=(?P<spocGuid>\S+),.*
+start_stuff:^starting stuff (?P<myId>(?:[+-]?(?:[0-9]+)))
+stop_stuff:^(?P<myId>(?:[+-]?(?:[0-9]+))) end stuff

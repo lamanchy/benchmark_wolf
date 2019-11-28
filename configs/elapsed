@@ -1,0 +1,7 @@
+start_stuff:stop_stuff:myId:stuff_elapsed
+spoolerJobProcessStart:spoolerJobProcessEnd:JobGuid:spoolerJobProcessElapsed
+terminalServerSending:spocLoadingJobTickets:userName:M3.1
+spocLoadingJobTickets:spocSendingPrintRequest:thread:M3.2
+spocSendingPrintRequest:spoolerPrintRequestReceived:requestId:M3.3
+terminalServerUserSessionStart:spoolerPrintJob:UserName:printDuration
+terminalLoginStart:terminalLoginEnd:DeviceIp:terminalLoginDuration

@@ -38,8 +38,12 @@ foreach(executable ${executables})
 
     install(TARGETS ${target} DESTINATION ${WOLF_TARGET_DIR}/)
 
-    # example of installing config files
-    #    if (${target} STREQUAL wolf_example)
-    #        install(FILES configs/example_config DESTINATION ${WOLF_TARGET_DIR}/)
-    #    endif ()
+    if (${target} STREQUAL parser)
+        install(FILES configs/parsers DESTINATION ${WOLF_TARGET_DIR}/)
+        install(FILES configs/elapsed DESTINATION ${WOLF_TARGET_DIR}/)
+    endif ()
+    if (${target} STREQUAL little_stack_parser)
+        install(FILES configs/parsers DESTINATION ${WOLF_TARGET_DIR}/)
+        install(FILES configs/elapsed DESTINATION ${WOLF_TARGET_DIR}/)
+    endif ()
 endforeach ()
