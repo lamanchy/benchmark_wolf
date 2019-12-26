@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
   plugin out = pipeline::chain_plugins(
       make<to::string>(),
       make<to::line>(),
-      make<stats>(),
+      make<stats>("out"),
       make<tcp::output>(output_ip, "9070")
   );
 
@@ -28,28 +28,26 @@ int main(int argc, char *argv[]) {
       out
   );
 
-  plugin common_preprocessing = pipeline::chain_plugins(
-      make<from::line>(),
-      make<from::string>()
-  );
-
   p.register_plugin(
       make<tcp::input>(9556),
-      common_preprocessing,
+      make<from::line>(),
+      make<from::string>(),
       make<normalize_nlog_logs>(),
       common_postprocessing
   );
 
   p.register_plugin(
       make<tcp::input>(9555),
-      common_preprocessing,
+      make<from::line>(),
+      make<from::string>(),
       make<normalize_log4j2_logs>(),
       common_postprocessing
   );
 
   p.register_plugin(
       make<tcp::input>(9559),
-      common_preprocessing,
+      make<from::line>(),
+      make<from::string>(),
       make<normalize_serilog_logs>(),
       common_postprocessing
   );
