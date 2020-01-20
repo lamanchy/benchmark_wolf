@@ -12,7 +12,8 @@ int main(int argc, char *argv[]) {
 
   pipeline p(o);
 
-  plugin metrics_output = pipeline::chain_plugins(
+  plugin output = pipeline::chain_plugins(
+      make<to::string>(),
       make<to::line>(),
       make<tcp::output>("localhost", "9070")
   );
@@ -40,7 +41,7 @@ int main(int argc, char *argv[]) {
                 message.assign_string(std::string(message["message"].get_string()));
               }
           ),
-          metrics_output
+          make<drop>()
       ),
 
       make<regex>(regex::parse_file(p.get_config_dir() + "parsers")),
@@ -56,7 +57,7 @@ int main(int argc, char *argv[]) {
                   std::vector<std::string>({"uniqueId",}),
                   "start_time"
               ),
-              metrics_output
+              make<drop>()
           ),
           make<to::influx>(
               "elapsed",
@@ -64,7 +65,7 @@ int main(int argc, char *argv[]) {
               std::vector<std::string>({"uniqueId", "duration"}),
               "start_time"
           ),
-          metrics_output
+          make<drop>()
       ),
 
       make<count_logs>(
@@ -76,10 +77,10 @@ int main(int argc, char *argv[]) {
               std::vector<std::string>({"count"}),
               "@timestamp"
           ),
-          metrics_output
+          make<drop>()
       ),
 
-      make<drop>()
+      output
   );
 
   p.run();
