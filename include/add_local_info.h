@@ -7,8 +7,8 @@ namespace wolf {
 
 class add_local_info : public base_plugin {
  public:
-  add_local_info(const option<std::string> &group,
-                 const option<std::string> &max_loglevel) :
+  add_local_info(const static_option<std::string> &group,
+                 const static_option<std::string> &max_loglevel) :
       group(group->value()),
       max_loglevel(max_loglevel->value()) {
     auto it = std::find(loglevels.begin(), loglevels.end(), this->max_loglevel);
