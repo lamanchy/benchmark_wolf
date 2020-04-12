@@ -9,9 +9,9 @@ int main(int argc, char *argv[]) {
   using std::string;
 
   options opts = options(argc, argv);
-  auto output_ip = opts.add<command<string>>("output_ip", "Ip address of output", "localhost");
-  auto group = opts.add<command<string>>("group", "Define the group name", "default");
-  auto max_loglevel = opts.add<command<string>>(
+  auto output_ip = opts.add<input<string>>("output_ip", "Ip address of output", "localhost");
+  auto group = opts.add<input<string>>("group", "Define the group name", "default");
+  auto max_loglevel = opts.add<input<string>>(
       "max_loglevel", "Define max loglevel, one of OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL", "INFO");
 
   pipeline p(opts);

@@ -7,8 +7,8 @@ int main(int argc, char *argv[]) {
 
   options o(argc, argv);
 
-  auto input_port = o.add<command<unsigned short>>("input_port", "Input port", "9069");
-  auto stream_sort_seconds = o.add<command<int>>("stream_sort_seconds", "Seconds to wait with each event", "60");
+  auto input_port = o.add<input<unsigned short>>("input_port", "Input port", "9069");
+  auto stream_sort_seconds = o.add<input<int>>("stream_sort_seconds", "Seconds to wait with each event", "60");
 
   pipeline p(o);
 
