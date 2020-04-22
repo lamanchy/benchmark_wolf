@@ -8,8 +8,7 @@ int main(int argc, char *argv[]) {
 
   p.register_plugin(
       make<tcp::input>(9556),
-      make<from::line>(),
-      make<to::line>(),
+      make<lambda>([](json&){}),
       make<tcp::output>("localhost", "9070")
   );
   p.run();
