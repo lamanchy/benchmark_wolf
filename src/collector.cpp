@@ -19,36 +19,29 @@ int main(int argc, char *argv[]) {
   plugin out = pipeline::chain_plugins(
       make<to::string>(),
       make<to::line>(),
-      make<stats>("out"),
+      make<stats>(),
       make<tcp::output>(output_ip, "9070")
   );
 
   plugin common_postprocessing = pipeline::chain_plugins(
+      make<from::line>(),
+      make<from::string>(),
       make<add_local_info>(group, max_loglevel),
       out
   );
 
   p.register_plugin(
       make<tcp::input>(9556),
-      make<from::line>(),
-      make<from::string>(),
-      make<normalize_nlog_logs>(),
       common_postprocessing
   );
 
   p.register_plugin(
       make<tcp::input>(9555),
-      make<from::line>(),
-      make<from::string>(),
-      make<normalize_log4j2_logs>(),
       common_postprocessing
   );
 
   p.register_plugin(
       make<tcp::input>(9559),
-      make<from::line>(),
-      make<from::string>(),
-      make<normalize_serilog_logs>(),
       common_postprocessing
   );
 
@@ -56,11 +49,10 @@ int main(int argc, char *argv[]) {
       make<tcp::input>(9557),
       make<from::line>(),
       make<lambda>(
-          [group](json &message) {
+          [](json &message) {
             message.assign_object(
                 {
                     {"message", message},
-                    {"group", group->value()},
                     {"type", "metrics"}
                 });
           }),
