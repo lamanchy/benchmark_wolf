@@ -1,8 +1,5 @@
 #include <wolf.h>
 #include <add_local_info.h>
-#include <normalize_nlog_logs.h>
-#include <normalize_serilog_logs.h>
-#include <normalize_log4j2_logs.h>
 
 int main(int argc, char *argv[]) {
   using namespace wolf;
