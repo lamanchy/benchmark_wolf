@@ -1,4 +1,6 @@
-# Wolf example app
+# Wolf benchmarks app
+
+This repository contains configurations of Wolf used for Wolf and Logstash comparison.
 
 Base of this repository was created with `wolf_win (wolf_linux)` docker image.
 
