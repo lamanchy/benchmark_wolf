@@ -28,21 +28,21 @@ class get_elapsed_preevents : public base_plugin {
 
         auto it = line.find(':');
         if (it == std::string::npos) {
-          Logger::getLogger().fatal("Cannot parsing file " + file_path + ", ':' is missing on line " + line);
+          logging::logger("get_elapsed_preevents").fatal << "Cannot parsing file " << file_path << ", ':' is missing on line " << line << std::endl;
         }
         config.start_logId = line.substr(0, it);
         line = line.substr(it + 1);
 
         it = line.find(':');
         if (it == std::string::npos) {
-          Logger::getLogger().fatal("Cannot parsing file " + file_path + ", ':' is missing on line " + line);
+          logging::logger("get_elapsed_preevents").fatal << "Cannot parsing file " << file_path << ", ':' is missing on line " << line << std::endl;
         }
         config.end_logId = line.substr(0, it);
         line = line.substr(it + 1);
 
         it = line.find(':');
         if (it == std::string::npos) {
-          Logger::getLogger().fatal("Cannot parsing file " + file_path + ", ':' is missing on line " + line);
+          logging::logger("get_elapsed_preevents").fatal << "Cannot parsing file " << file_path << ", ':' is missing on line " << line << std::endl;
         }
         config.uniqueId = line.substr(0, it);
         config.name = line.substr(it + 1);
@@ -51,7 +51,7 @@ class get_elapsed_preevents : public base_plugin {
       }
       file.close();
     } else {
-      Logger::getLogger().fatal("Cannot open file " + file_path + " for regexes.");
+      logging::logger("get_elapsed_preevents").fatal << "Cannot open file " << file_path << " for regexes." << std::endl;
     }
 
     return result;
